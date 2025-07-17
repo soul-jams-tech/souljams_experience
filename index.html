@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Soul Jams Experience</title>
+  <!-- Closest Google Font matches -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Urbanist:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f78a4d;
+      font-family: 'Urbanist', sans-serif;
+      color: black;
+      text-align: center;
+    }
+
+    .page {
+      display: none;
+      padding: 60px 20px;
+    }
+
+    .page.active {
+      display: block;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.8em;
+      margin-bottom: 20px;
+    }
+
+    .desc {
+      font-size: 1.3em;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .btn {
+      background-color: black;
+      color: #f78a4d;
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background-color: #222;
+    }
+
+    .quiz-option {
+      display: block;
+      margin: 12px auto;
+      padding: 12px 25px;
+      font-size: 1em;
+      border: 2px solid black;
+      border-radius: 10px;
+      background-color: white;
+      width: fit-content;
+      cursor: pointer;
+      font-family: 'Urbanist', sans-serif;
+      font-weight: 600;
+    }
+
+    .quiz-option:hover {
+      background-color: #ffe3d3;
+    }
+
+    #final-cta {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: black;
+      color: #f78a4d;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      animation: glow 2s infinite;
+      font-weight: 600;
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px rgba(0,0,0,0.4); }
+      50% { box-shadow: 0 0 20px rgba(0,0,0,0.8); }
+      100% { box-shadow: 0 0 5px rgba(0,0,0,0.4); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: TRUST -->
+  <div class="page active" id="page1">
+    <div class="logo">🎤 Soul Jams</div>
+    <div class="desc">
+      Hey there.<br><br>
+      You just scanned one of our quirky QR posters 😌<br><br>
+      We're <b>Soul Jams</b> — a music community that hosts live, co-created jam sessions across India.<br><br>
+      We're safe. We're soulful. And you're about to take a tiny journey that might just move you.
+    </div>
+    <button class="btn" onclick="goToPage(2)">Show me the magic 🎩</button>
+  </div>
+
+  <!-- PAGE 2: STORY -->
+  <div class="page" id="page2">
+    <div class="logo">✨ Our Story</div>
+    <div class="desc">
+      We began in a living room in 2022.<br><br>
+      A few friends. A few instruments. A lot of feeling.<br><br>
+      Today, thousands gather across cities — not to watch, but to belong.<br><br>
+      Soul Jams isn’t a concert. It’s a circle. A jam. A family.<br><br>
+      This July... we turn 3. And you’re invited.
+    </div>
+    <button class="btn" onclick="goToPage(3)">Take me further 🛸</button>
+  </div>
+
+  <!-- PAGE 3: QUIZ -->
+  <div class="page" id="page3">
+    <div class="logo">🎮 Vibe Check</div>
+    <div class="desc" id="quiz-question">What instrument are you emotionally today?</div>
+    <div class="quiz-option" onclick="nextQuiz()">🥁 Tabla</div>
+    <div class="quiz-option" onclick="nextQuiz()">🎤 Microphone</div>
+    <div class="quiz-option" onclick="nextQuiz()">🎸 Guitar</div>
+    <div class="quiz-option" onclick="nextQuiz()">🪘 Dholak</div>
+  </div>
+
+  <!-- PAGE 4: FINAL REVEAL -->
+  <div class="page" id="page4">
+    <div class="logo">🌌 The Soulverse Is Real</div>
+    <div class="desc">
+      This isn’t marketing.<br><br>
+      This is a cosmic alignment.<br><br>
+      The jam of the year is calling.<br><br>
+      You were meant to be there.
+    </div>
+    <button id="final-cta" onclick="window.location.href='https://www.district.in/events/soul-jams-bengaluru-3rd-anniversary-jul27-2025-buy-tickets?disableSSR=true'">
+      🎟️ Book Your Front-Row Seat to the Soulverse
+    </button>
+  </div>
+
+  <script>
+    function goToPage(n) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(`page${n}`).classList.add('active');
+    }
+
+    function nextQuiz() {
+      document.getElementById("quiz-question").innerText = "You’re 98% soul-ready. Let’s go deeper 🎧";
+      setTimeout(() => goToPage(4), 1500);
+    }
+  </script>
+
+</body>
+</html>
